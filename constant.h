@@ -52,5 +52,4 @@ struct Point {
 	Job job;
 };
 
-const int MaxN = 6;
 const int Threshold = 5;

@@ -29,14 +29,14 @@ public:
 
 // 采用曼哈顿距离聚类
 double manhattanDistance(const Person& p1, const Person& p2) {
-	return abs(p1.point.age - p2.point.age) +
+	return 0.5*abs(p1.point.age - p2.point.age) +
 		fabs(p1.point.job - p2.point.job) +
 		fabs(p1.point.sex - p2.point.sex);
 }
 
-void hierarchicalClustering(vector<Person>& people) {
-	if (people.empty()) return;
+vector<Cluster> hierarchicalClustering(vector<Person>& people) {
 	vector<Cluster> clusters;
+	if (people.empty()) return clusters;	
 	for (const auto& p : people) {
 		clusters.emplace_back(p);
 	}
@@ -78,10 +78,8 @@ void hierarchicalClustering(vector<Person>& people) {
 		}
 		cout << endl;
 	}
+	return clusters;
 }
-//vector<Person> people;
-// initial a zero matrix 
-//vector<vector<int>> matrix(MaxN, vector<int>(MaxN,0));
 
 //初始化图
 void init_people(vector<Person>& people) {
@@ -119,31 +117,63 @@ void load(vector<Person>& people, string filepath) {
 	}
 }
 
-/*
-void cluster_matrix() {
-	double m[MaxN][MaxN] = { 0 };
-	for (int i = 0; i < MaxN; i++) {
-		for (int j = 0; j < MaxN; j++) {
-			m[i][j] = manhattanDistance(people[i], people[j]);
+vector<vector<int>> generateMatrix01(int n, vector<Cluster> cluster) {
+	vector<vector<int>> matrix(n, vector<int>(n, 0));
+	// 定义聚类的数量
+	int ClassNum = cluster.size();
+	// i 表示矩阵行,j表示矩阵列
+	for (int i = 0; i < n; ++i) {
+		// block 表示i属于cluater的第几块
+		int block = 0;
+		int sum = 0;
+		for (int k = 0; k < ClassNum; k++) {
+			sum += cluster[k].people.size();
+			if (i < sum) { block = k; break; }
+		}
+
+		for (int j = i; j < sum; ++j) {
+			double distance = manhattanDistance(cluster[block].people[i], cluster[block].people[j]);
+			if (distance <= Threshold) {
+				matrix[i][j] = 1;
+				matrix[j][i] = 1; // 因为矩阵是对称的，所以也要更新j到i的关系			
+			}			
 		}
 	}
-
+	return matrix;
 }
 
-void print_matrix(vector<vector<int>>& matrix) {
-	for (auto& row : matrix) {
-		for (int val : row) {
-			cout << val << " ";
-		}
-		cout << endl;
+int PeopleNum(vector<Person>& people) {
+	return people.size();
+}
+
+vector<string> Namelist(int n, vector<Cluster> cluster) {
+	// 定义聚类的数量
+	int ClassNum = cluster.size();
+	vector<string> namelist;
+
+	for (int i = 0; i < ClassNum; i++) {
+		for (int j = 0; j < cluster[i].people.size(); j++)
+			namelist.push_back(cluster[i].people[j].name);
 	}
+	return namelist;
 }
-*/
 
 int main() {
-	vector<Person> people = {};
-	init_people(people);
-	//load(people,"data.csv");
-	hierarchicalClustering(people);
+	// num shows people number
+	int num = 0;
+
+	vector<Person> people = {};	
+	//init_people(people);
+	load(people,"data.csv");
+	vector<Cluster> cluster = hierarchicalClustering(people);
+	vector<vector<int>> matrix = generateMatrix01(PeopleNum(people), cluster);
+
+	for (const auto& row : matrix) {
+        for (int val : row) {
+			 std::cout << val << " ";
+			
+		}
+       std::cout << std::endl;
+	}
 	return 0;
 }
