@@ -17,6 +17,7 @@ Cluster_show::Cluster_show(QWidget *parent)
     }
 
     QTableWidget *tableWidget = new QTableWidget(maxsize,clusters.size(),this);
+    int colorset=0;
     for (int column = 0; column < clusters.size(); ++column)
     {
         for (int row = 0; row < maxsize; ++row)
@@ -24,12 +25,26 @@ Cluster_show::Cluster_show(QWidget *parent)
             if(row<clusters[column].peoples.size())
             {
                 QTableWidgetItem *item = new QTableWidgetItem(QString::fromStdString(clusters[column].peoples[row].name));
+                switch(colorset)
+                {
+                case 0:item->setBackground(Qt::green);
+                    break;
+                case 1:item->setBackground(Qt::red);
+                    break;
+                case 2:item->setBackground(Qt::blue);
+                    break;
+                case 3:item->setBackground(Qt::yellow);
+                    break;
+                }
+
                 tableWidget->setItem(row, column, item);
             }
             else
                 break;
 
         }
+        colorset++;
+        colorset%=4;
     }
 
 

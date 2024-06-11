@@ -19,7 +19,6 @@ std::vector<Cluster> Cluster::hierarchicalClustering(Cluster peo)
         std::pair<int, int> nearClusters;
         for (int i = 0; i < clusters.size(); i++)
         {
-            qDebug()<<i;
             for (int j = i + 1; j < clusters.size(); j++)
             {
                 int distance = INT_MAX;
