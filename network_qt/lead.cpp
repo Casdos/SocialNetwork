@@ -5,6 +5,7 @@ lead::lead(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::lead)
 {
+    this->setStyleSheet("QWidget { background-color: #E7DAD2; }");
     ui->setupUi(this);
     ui->comboBox->addItem("male");
     ui->comboBox->addItem("female");

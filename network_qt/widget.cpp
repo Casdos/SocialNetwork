@@ -6,6 +6,7 @@ Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
 {
+    this->setStyleSheet("QWidget { background-color: #E7DAD2; }");
     ui->setupUi(this);
 }
 

@@ -5,6 +5,7 @@ Checkwidget::Checkwidget(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Checkwidget)
 {
+    this->setStyleSheet("QWidget { background-color: #E7DAD2; }");
     ui->setupUi(this);
     std::vector<Person> people;
     std::string filepath = "C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv";

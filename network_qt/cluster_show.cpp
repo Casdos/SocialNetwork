@@ -5,6 +5,7 @@ Cluster_show::Cluster_show(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Cluster_show)
 {
+    this->setStyleSheet("QWidget { background-color: #E7DAD2; }");
     std::vector<Person> people;
     std::string filepath = "C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv";
     Load(people, filepath);
@@ -55,7 +56,12 @@ Cluster_show::Cluster_show(QWidget *parent)
     }
 
     for (int i = 0; i <RootPositionInSet.size(); i++) {
+        tableWidget->setStyleSheet( "QHeaderView::section {"
+                                   "    background-color: #E7DAD2; /* 表头背景颜色 */"
+                                   "}"
+                                   );
         tableWidget->setHorizontalHeaderItem(i, new QTableWidgetItem(QString::number(i)));
+
     }
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);

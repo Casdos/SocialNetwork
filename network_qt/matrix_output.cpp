@@ -7,7 +7,7 @@ matrix_output::matrix_output(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::matrix_output)
 {
-
+    this->setStyleSheet("QWidget { background-color: #E7DAD2; }");
     std::vector<Person> people;
     std::string filepath = "C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv";
     Load(people, filepath);
@@ -34,6 +34,10 @@ matrix_output::matrix_output(QWidget *parent)
         tableWidget->setVerticalHeaderItem(i, new QTableWidgetItem(QString::fromStdString(people[i].name)));
         tableWidget->setHorizontalHeaderItem(i, new QTableWidgetItem(QString::fromStdString(people[i].name)));
     }
+    tableWidget->setStyleSheet( "QHeaderView::section {"
+                               "    background-color: #E7DAD2; /* 表头背景颜色 */"
+                               "}"
+                               );
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
     setLayout(layout);
