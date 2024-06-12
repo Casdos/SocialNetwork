@@ -1,7 +1,7 @@
 #ifndef WIDGET_H
 #define WIDGET_H
-
 #include <QWidget>
+#include"Checkwidget.h"
 #include"cluster_show.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,6 +23,8 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_3_clicked();
+
+    void on_pushButton_clicked();
 
 private:
     Ui::Widget *ui;

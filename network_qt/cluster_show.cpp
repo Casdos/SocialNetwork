@@ -5,26 +5,33 @@ Cluster_show::Cluster_show(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::Cluster_show)
 {
-    Cluster peoples;
-    peoples.load("C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv");
-    std::vector<Cluster> clusters = peoples.hierarchicalClustering(peoples);
-
+    std::vector<Person> people;
+    std::string filepath = "C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv";
+    Load(people, filepath);
+    int vertices = people.size();
+    Graph graph(vertices);
+    graph.autoGenerateEdge(people);
+    int** matrix = graph.dispaly01Matrix();
+    DisjointSetUnion dsu(vertices);
+    dsu.buildConnectionsFromMatrix(matrix, vertices);
+    std::vector<int> RootPositionInSet = dsu.displaySets();
     int maxsize=0;
-    for(int i=0;i<clusters.size();i++)
+    for (int i : RootPositionInSet)
     {
-        if(clusters[i].peoples.size()>maxsize)
-            maxsize=clusters[i].peoples.size();
+        std::vector<int> elements = dsu.getElementsInSet(i);
+        if(elements.size()>maxsize)
+            maxsize=elements.size();
     }
-
-    QTableWidget *tableWidget = new QTableWidget(maxsize,clusters.size(),this);
+    QTableWidget *tableWidget = new QTableWidget(maxsize,RootPositionInSet.size(),this);
     int colorset=0;
-    for (int column = 0; column < clusters.size(); ++column)
+    for (int column = 0; column < RootPositionInSet.size(); ++column)//每一列
     {
-        for (int row = 0; row < maxsize; ++row)
+        for (int row = 0; row < maxsize; ++row)//每行
         {
-            if(row<clusters[column].peoples.size())
+            std::vector<int> elements = dsu.getElementsInSet(RootPositionInSet[column]);
+            if(row<elements.size())
             {
-                QTableWidgetItem *item = new QTableWidgetItem(QString::fromStdString(clusters[column].peoples[row].name));
+                QTableWidgetItem *item = new QTableWidgetItem(QString::fromStdString(people[elements[row]].name));
                 switch(colorset)
                 {
                 case 0:item->setBackground(Qt::green);
@@ -47,14 +54,13 @@ Cluster_show::Cluster_show(QWidget *parent)
         colorset%=4;
     }
 
-
-    for (int i = 0; i <clusters.size(); i++) {
+    for (int i = 0; i <RootPositionInSet.size(); i++) {
         tableWidget->setHorizontalHeaderItem(i, new QTableWidgetItem(QString::number(i)));
     }
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(tableWidget);
     setLayout(layout);
-    ui->setupUi(this);
+     ui->setupUi(this);
 }
 
 Cluster_show::~Cluster_show()

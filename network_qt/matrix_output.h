@@ -1,8 +1,13 @@
 #ifndef MATRIX_OUTPUT_H
 #define MATRIX_OUTPUT_H
 
-#include"cluster.h"
+
 #include <QDialog>
+#include"Graph.h"
+#include"DisjointSetUnion.h"
+
+void Load(std::vector<Person> &people, std::string filepath);
+
 namespace Ui {
 class matrix_output;
 }

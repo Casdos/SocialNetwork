@@ -25,6 +25,7 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
     QPushButton *pushButton_2;
+    QPushButton *pushButton;
     QPushButton *pushButton_3;
     QPushButton *pushButton_4;
 
@@ -47,6 +48,11 @@ public:
 
         verticalLayout->addWidget(pushButton_2);
 
+        pushButton = new QPushButton(verticalLayoutWidget);
+        pushButton->setObjectName("pushButton");
+
+        verticalLayout->addWidget(pushButton);
+
         pushButton_3 = new QPushButton(verticalLayoutWidget);
         pushButton_3->setObjectName("pushButton_3");
 
@@ -68,6 +74,7 @@ public:
         Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
         label->setText(QCoreApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:22pt;\">\347\244\276\344\272\244\347\275\221\347\273\234\345\210\206\346\236\220</span></p></body></html>", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Widget", "\345\257\274\345\205\245", nullptr));
+        pushButton->setText(QCoreApplication::translate("Widget", "\346\243\200\346\237\245", nullptr));
         pushButton_3->setText(QCoreApplication::translate("Widget", "\346\237\245\347\234\213\347\244\276\344\272\244\347\275\221\347\273\234\347\237\251\351\230\265", nullptr));
         pushButton_4->setText(QCoreApplication::translate("Widget", "\346\237\245\347\234\213\345\217\257\350\247\206\345\214\226\347\244\276\344\272\244\347\275\221\347\273\234", nullptr));
     } // retranslateUi

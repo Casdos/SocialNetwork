@@ -3,8 +3,10 @@
 #include <QListWidget>
 #include <QDialog>
 #include <QHBoxLayout>
-#include"cluster.h"
 #include<QTableWidget>
+#include"Graph.h"
+#include"DisjointSetUnion.h"
+void Load(std::vector<Person> &people, std::string filepath);
 namespace Ui {
 class Cluster_show;
 }

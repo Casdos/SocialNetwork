@@ -9,23 +9,28 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    cluster.cpp \
+    DisjointSetUnion.cpp \
+    Graph.cpp \
+    checkwidget.cpp \
     cluster_show.cpp \
+    function.cpp \
     lead.cpp \
     main.cpp \
     matrix_output.cpp \
-    people.cpp \
     widget.cpp
 
 HEADERS += \
-    cluster.h \
+    DisjointSetUnion.h \
+    Graph.h \
+    checkwidget.h \
     cluster_show.h \
+    constant.h \
     lead.h \
     matrix_output.h \
-    people.h \
     widget.h
 
 FORMS += \
+    checkwidget.ui \
     cluster_show.ui \
     lead.ui \
     matrix_output.ui \

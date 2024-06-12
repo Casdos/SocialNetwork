@@ -37,16 +37,16 @@ void lead::on_comboBox_activated(int index)
 void lead::on_pushButton_clicked()
 {
     QString name = ui->lineEdit->text();
-    int  age = ui->lineEdit->text().toInt();
+    int  age = ui->lineEdit_2->text().toInt();
     QString sex=ui->comboBox->currentText();
-    QString job=ui->comboBox->currentText();
+    QString job=ui->comboBox_2->currentText();
     QString filePath="C:/Users/0/Desktop/SocialNetwork/network_qt/data.csv";
     QFile file(filePath);
     if (!file.open(QIODevice::Append | QIODevice::Text)) {
         qWarning() << "Cannot open file for appending";
     }
     QTextStream out(&file);
-    out <<name<<","<<age<<","<<sex<<","<<job<<"/n";
+    out <<name<<","<<age<<","<<sex<<","<<job;
     file.close();
 
     QMessageBox::information(this, "Success", "导入完成", QMessageBox::Ok);

@@ -34,3 +34,11 @@ void Widget::on_pushButton_4_clicked()//可视化图
     cluster_show.exec();
 }
 
+
+void Widget::on_pushButton_clicked()
+{
+    Checkwidget  checkwidget;
+    checkwidget.exec();
+}
+
+
