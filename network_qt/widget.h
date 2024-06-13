@@ -3,6 +3,7 @@
 #include <QWidget>
 #include"Checkwidget.h"
 #include"cluster_show.h"
+#include"statesmatrix_output.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class Widget;
@@ -25,6 +26,8 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_clicked();
+
+    void on_pushButton_5_clicked();
 
 private:
     Ui::Widget *ui;

@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>社交网络分析</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>180</y>
+     <x>289</x>
+     <y>200</y>
      <width>222</width>
      <height>47</height>
     </rect>
@@ -29,10 +29,10 @@
   <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>300</x>
      <y>340</y>
-     <width>160</width>
-     <height>135</height>
+     <width>146</width>
+     <height>170</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -54,6 +54,13 @@
      <widget class="QPushButton" name="pushButton_3">
       <property name="text">
        <string>查看社交网络矩阵</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="text">
+       <string>查看共享状态矩阵</string>
       </property>
      </widget>
     </item>

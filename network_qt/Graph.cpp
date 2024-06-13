@@ -46,3 +46,11 @@ bool Graph::check(std::string name1, std::string name2, std::vector<Person> peop
 	if (dsu.find(num1) == dsu.find(num2)) return true;
 	else return false;
 }
+
+bool Graph::check(int pos1, int pos2, DisjointSetUnion &dsu){
+    if(dsu.find(pos1) == dsu.find(pos2)){
+        return true;
+    }else{
+        return false;
+    }
+}

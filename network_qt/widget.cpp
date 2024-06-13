@@ -43,3 +43,10 @@ void Widget::on_pushButton_clicked()
 }
 
 
+
+void Widget::on_pushButton_5_clicked()
+{
+    Statesmatrix_output  statesmatrix_output;
+    statesmatrix_output.exec();
+}
+

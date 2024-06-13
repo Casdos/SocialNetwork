@@ -27,6 +27,7 @@ public:
     QPushButton *pushButton_2;
     QPushButton *pushButton;
     QPushButton *pushButton_3;
+    QPushButton *pushButton_5;
     QPushButton *pushButton_4;
 
     void setupUi(QWidget *Widget)
@@ -36,10 +37,10 @@ public:
         Widget->resize(800, 600);
         label = new QLabel(Widget);
         label->setObjectName("label");
-        label->setGeometry(QRect(220, 180, 222, 47));
+        label->setGeometry(QRect(289, 200, 222, 47));
         verticalLayoutWidget = new QWidget(Widget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(280, 340, 160, 135));
+        verticalLayoutWidget->setGeometry(QRect(300, 340, 146, 170));
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
@@ -58,6 +59,11 @@ public:
 
         verticalLayout->addWidget(pushButton_3);
 
+        pushButton_5 = new QPushButton(verticalLayoutWidget);
+        pushButton_5->setObjectName("pushButton_5");
+
+        verticalLayout->addWidget(pushButton_5);
+
         pushButton_4 = new QPushButton(verticalLayoutWidget);
         pushButton_4->setObjectName("pushButton_4");
 
@@ -71,11 +77,12 @@ public:
 
     void retranslateUi(QWidget *Widget)
     {
-        Widget->setWindowTitle(QCoreApplication::translate("Widget", "Widget", nullptr));
+        Widget->setWindowTitle(QCoreApplication::translate("Widget", "\347\244\276\344\272\244\347\275\221\347\273\234\345\210\206\346\236\220", nullptr));
         label->setText(QCoreApplication::translate("Widget", "<html><head/><body><p><span style=\" font-size:22pt;\">\347\244\276\344\272\244\347\275\221\347\273\234\345\210\206\346\236\220</span></p></body></html>", nullptr));
         pushButton_2->setText(QCoreApplication::translate("Widget", "\345\257\274\345\205\245", nullptr));
         pushButton->setText(QCoreApplication::translate("Widget", "\346\243\200\346\237\245", nullptr));
         pushButton_3->setText(QCoreApplication::translate("Widget", "\346\237\245\347\234\213\347\244\276\344\272\244\347\275\221\347\273\234\347\237\251\351\230\265", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("Widget", "\346\237\245\347\234\213\345\205\261\344\272\253\347\212\266\346\200\201\347\237\251\351\230\265", nullptr));
         pushButton_4->setText(QCoreApplication::translate("Widget", "\346\237\245\347\234\213\345\217\257\350\247\206\345\214\226\347\244\276\344\272\244\347\275\221\347\273\234", nullptr));
     } // retranslateUi
 

@@ -1,7 +1,6 @@
 #include "matrix_output.h"
 #include "ui_matrix_output.h"
-#include <QTableWidget>
-#include <QVBoxLayout>
+
 
 matrix_output::matrix_output(QWidget *parent)
     : QDialog(parent)

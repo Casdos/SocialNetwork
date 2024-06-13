@@ -17,6 +17,7 @@ public:
     void autoGenerateEdge(std::vector<Person> people);
     int** dispaly01Matrix();
     bool check(std::string name1, std::string name2, std::vector<Person> people, DisjointSetUnion &dsu);
+    bool check(int pos1, int pos2, DisjointSetUnion &dsu);
 
 private:
     int vertices;

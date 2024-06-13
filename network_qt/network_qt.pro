@@ -17,6 +17,7 @@ SOURCES += \
     lead.cpp \
     main.cpp \
     matrix_output.cpp \
+    statesmatrix_output.cpp \
     widget.cpp
 
 HEADERS += \
@@ -27,6 +28,7 @@ HEADERS += \
     constant.h \
     lead.h \
     matrix_output.h \
+    statesmatrix_output.h \
     widget.h
 
 FORMS += \
@@ -34,6 +36,7 @@ FORMS += \
     cluster_show.ui \
     lead.ui \
     matrix_output.ui \
+    statesmatrix_output.ui \
     widget.ui
 
 # Default rules for deployment.

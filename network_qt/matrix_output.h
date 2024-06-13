@@ -5,7 +5,8 @@
 #include <QDialog>
 #include"Graph.h"
 #include"DisjointSetUnion.h"
-
+#include <QTableWidget>
+#include <QVBoxLayout>
 void Load(std::vector<Person> &people, std::string filepath);
 
 namespace Ui {
